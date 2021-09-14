@@ -1,0 +1,1 @@
+export const API_URL = 'https://netease-cloud-music-api-sigma-three.vercel.app/'
