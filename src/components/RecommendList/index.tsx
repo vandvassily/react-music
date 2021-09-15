@@ -8,7 +8,7 @@ type Iprops = {
 const RecommendList: React.FC<Iprops> = (props) => {
   return (
     <div className='recommend-list'>
-      <h1 className='recommend-list-title'>推荐歌单</h1>
+      <h1 className='recommend-list-title'>编辑推荐</h1>
       <div className='recommend-list-container'>
         {props.recommendList.map((item) => {
           return <RecmmendItem key={item.id} picUrl={item.picUrl} playCount={item.playCount} name={item.name} />;
