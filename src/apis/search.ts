@@ -9,9 +9,9 @@ export const searchHot = async () => {
   return res?.result?.hots;
 };
 
-export const personalized = async () => {
+export const personalized = async (limit = 10) => {
   const res = await axios({
-    url: '/personalized',
+    url: `/personalized?limit=${limit}`
   });
 
   return res;

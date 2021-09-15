@@ -1,0 +1,27 @@
+.recommend-list {
+  &-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-title {
+    position: relative;
+    padding-left: 9px;
+    margin-bottom: 14px;
+    font-size: 17px;
+    height: 20px;
+    line-height: 20px;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -9px;
+      width: 2px;
+      height: 16px;
+      background-color: #d33a31;
+    }
+  }
+}

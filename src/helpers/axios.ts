@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, ResponseType, AxiosInstance } from 'axios';
 
 import { API_URL } from '../constants/server';
 
-const TIMEOUT = 4000;
+const TIMEOUT = 10000;
 
 const MIME_TYPE: ResponseType = 'json';
 

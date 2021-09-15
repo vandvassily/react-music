@@ -1,0 +1,25 @@
+@import '../../../style/text.less';
+
+.recommend-item {
+  position: relative;
+  display: block;
+  margin-bottom: 16px;
+  float: left;
+  width: 33.3%;
+  padding-left: 1px;
+  padding-right: 1px;
+  box-sizing: border-box;
+
+  .play-count {
+    position: absolute;
+    font-size: 14px;
+    color: #fff;
+    top: 0;
+    right: 4px;
+  }
+
+  &-title {
+    font-size: 13px;
+    .multi-ellipsis(2);
+  }
+}
