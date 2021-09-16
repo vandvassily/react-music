@@ -1,5 +1,6 @@
 import RecmmendItem, { SonglistType } from './item';
 import './index.less';
+import ListTitle from '../ListTitle';
 
 type Iprops = {
   recommendList: SonglistType[];
@@ -7,11 +8,18 @@ type Iprops = {
 
 const RecommendList: React.FC<Iprops> = (props) => {
   return (
-    <div className='recommend-list'>
-      <h1 className='recommend-list-title'>编辑推荐</h1>
-      <div className='recommend-list-container'>
+    <div className="recommend-list">
+      <ListTitle title="编辑推荐" />
+      <div className="recommend-list-container">
         {props.recommendList.map((item) => {
-          return <RecmmendItem key={item.id} picUrl={item.picUrl} playCount={item.playCount} name={item.name} />;
+          return (
+            <RecmmendItem
+              key={item.id}
+              picUrl={item.picUrl}
+              playCount={item.playCount}
+              name={item.name}
+            />
+          );
         })}
       </div>
     </div>
