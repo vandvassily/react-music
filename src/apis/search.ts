@@ -19,7 +19,7 @@ export const personalized = async (limit = 10) => {
 };
 
 // 最新音乐
-export const newSongs = async (limit = 10) => {
+export const searchNewSongs = async (limit = 10) => {
   const res = await axios({
     url: `/personalized/newsong?limit=${limit}`
   });

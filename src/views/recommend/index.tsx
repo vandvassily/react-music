@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import './index.less';
 
-import { personalized, playlistByCat, searchHot } from '../../apis/search';
+import { personalized, playlistByCat, searchHot, searchNewSongs } from '../../apis/search';
 import RecommendList from '../../components/RecommendList';
+import SongsList from '../../components/SongsList';
+import Download from '../../components/Download';
 
 type hotProps = {
   first: string;
@@ -11,6 +13,7 @@ type hotProps = {
 const Search: React.FC<{}> = () => {
   const [hot, setHot] = useState([]);
   const [recommendList, setRecommendList] = useState([]);
+  const [newSongs, setNewSongs] = useState([]);
 
   // TODO: 请求统一封装
   useEffect(() => {
@@ -23,6 +26,11 @@ const Search: React.FC<{}> = () => {
       setRecommendList(res.result)
     });
 
+    searchNewSongs().then(res => {
+      console.log(res)
+      setNewSongs(res.result)
+    })
+
     playlistByCat().then((res) => {
       console.log(res);
     });
@@ -34,6 +42,8 @@ const Search: React.FC<{}> = () => {
         return <div key={item.first + index}>{item.first}</div>;
       })}
       <RecommendList recommendList={recommendList} />
+      <SongsList title="最新音乐" list={newSongs} />
+      <Download />
     </div>
   );
 };
