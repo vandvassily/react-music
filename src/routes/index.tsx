@@ -19,6 +19,8 @@ const SuspenseComponent =
 const Recommend = lazy(() => import('../views/recommend/index'));
 const About = lazy(() => import('../views/about/index'));
 const Help = lazy(() => import('../views/help/index'));
+const HotBillboard = lazy(() => import('../views/hot-billboard'));
+const Search = lazy(() => import('../views/search'));
 
 export const routes: RouteConfig[] = [
   {
@@ -35,7 +37,6 @@ export const routes: RouteConfig[] = [
         path: '/about',
         component: SuspenseComponent(About),
       },
-
       {
         path: '/help',
         component: SuspenseComponent(Help),
@@ -43,6 +44,14 @@ export const routes: RouteConfig[] = [
       {
         path: '/recommend',
         component: SuspenseComponent(Recommend),
+      },
+      {
+        path: '/hot-billboard',
+        component: SuspenseComponent(HotBillboard),
+      },
+      {
+        path: '/search',
+        component: SuspenseComponent(Search),
       },
     ],
   },

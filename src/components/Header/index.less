@@ -1,0 +1,38 @@
+.top-bar {
+  position: relative;
+  padding-bottom: 80px;
+  height: 0;
+
+  &-fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #d43c33;
+    z-index: 100;
+  }
+
+  &-title {
+    position: relative;
+    color: #fff;
+  }
+
+  &-btn {
+    position: relative;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    text-align: center;
+    color: #d43c33;
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 0 10px;
+  }
+}

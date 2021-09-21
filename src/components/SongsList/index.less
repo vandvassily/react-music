@@ -5,12 +5,31 @@
     padding-left: 4px;
     display: flex;
 
+    &::after {
+      position: absolute;
+      z-index: 2;
+      content: '';
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      transform-origin: top left;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      transform: scale(0.5);
+    }
+
     .song-id {
       width: 40px;
       font-size: 17px;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .index-red {
+      color: #df3436;
     }
 
     &-left {
