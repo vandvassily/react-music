@@ -1,18 +1,17 @@
 import './index.less';
 import { debounce } from 'lodash-es';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent, useMemo } from 'react';
 import { searchHot, searchSuggest } from '../../apis';
 
 function request(keyword: any) {
-  console.log(keyword)
+  if (!keyword) return Promise.resolve([]);
   return searchSuggest(keyword);
 }
-const getResult = debounce(request, 300);
 
 const Search: React.FC<{}> = () => {
-  let suggestStatus = false;
-
-  const [HotSearchs, setHotSearchs] = useState([]);
+  const [query, setQuery] = useState('');
+  const [suggests, setSuggests] = useState([]);
+  const [hotSearchs, setHotSearchs] = useState([]);
 
   useEffect(() => {
     searchHot().then((res) => {
@@ -20,50 +19,58 @@ const Search: React.FC<{}> = () => {
     });
   }, []);
 
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    if (suggestStatus) return;
-    console.log(e.target.value);
-    getResult(e.target.value)?.then((res) => {
-      console.log(res);
+  const handleQueryDebounce = useMemo(() => {
+    return debounce(request, 500);
+  }, []);
+
+  useEffect(() => {
+    handleQueryDebounce(query)?.then(res => {
+      setSuggests(res || [])
     });
+  }, [query]);
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
+    e: ChangeEvent<HTMLInputElement>,
+  ) => {
+    console.log(e.currentTarget.value)
+    setQuery(e.currentTarget.value);
   };
 
-  const onCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
-    suggestStatus = false;
-    // console.log('onCompositionEnd: ' + (e.target as HTMLInputElement).value);
-  };
-  const onCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
-    suggestStatus = true;
-  };
   return (
     <div>
-      <div className='search-input'>
-        <div className='search-input-cover'>
-          <i className='iconfont search-icon'>&#xe644;</i>
+      <div className="search-input">
+        <div className="search-input-cover">
+          <i className="iconfont search-icon">&#xe644;</i>
           <input
-            type='search'
-            name='search'
-            placeholder='搜索歌曲、歌手、专辑'
-            onCompositionEnd={onCompositionEnd}
-            onCompositionStart={onCompositionStart}
-            onChange={onChange}
+            type="search"
+            name="search"
+            placeholder="搜索歌曲、歌手、专辑"
+            onChange={handleChange}
             autoFocus
           />
         </div>
       </div>
-      <div className='hot-search-container'>
-        <div className='hot-search-title'>热门搜索</div>
-        <div className='hot-search-list'>
-          {HotSearchs.map((item: any) => {
+      <div className="hot-search-container">
+        <div className="hot-search-title">热门搜索</div>
+        <div className="hot-search-list">
+          {hotSearchs.map((item: any) => {
             return (
-              <div key={item.first} className='hot-search-item'>
+              <div key={item.first} className="hot-search-item">
                 {item.first}
               </div>
             );
           })}
         </div>
       </div>
-      <div className='history-search'></div>
+      <div className="history-search"></div>
+      <div className="search-suggest-container">
+        <div>搜索建议</div>
+        <div className="search-suggest-list">
+          {suggests.map((item: any) => {
+            return <div className="search-suggest-item">{item.keyword}</div>;
+          })}
+        </div>
+      </div>
     </div>
   );
 };

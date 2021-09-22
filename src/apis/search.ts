@@ -41,10 +41,10 @@ export const playlistByCat = async () => {
  * 搜索建议
  */
 
-export async function searchSuggest(keyword: string = ''): Promise<{}> {
+export async function searchSuggest(keyword: string = ''): Promise<[]> {
   const res = await axios({
-    url: `/search/suggest?keywords=${keyword}`
+    url: `/search/suggest?keywords=${keyword}&type=mobile`
   });
 
-  return res;
+  return res?.result?.allMatch;
 }
