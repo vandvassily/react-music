@@ -2,10 +2,9 @@ import axios from '../helpers/axios';
 
 export const searchHot = async () => {
   const res = await axios({
-    url: '/search/hot',
+    url: '/search/hot'
   });
 
-  console.log(res);
   return res?.result?.hots;
 };
 
@@ -32,8 +31,20 @@ export const playlistByCat = async () => {
     method: 'GET',
     url: '/top/playlist',
     params: {
-      cat: '华语',
-    },
+      cat: '华语'
+    }
   });
   return res;
 };
+
+/**
+ * 搜索建议
+ */
+
+export async function searchSuggest(keyword: string = ''): Promise<{}> {
+  const res = await axios({
+    url: `/search/suggest?keywords=${keyword}`
+  });
+
+  return res;
+}
