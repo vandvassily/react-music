@@ -97,30 +97,33 @@
   .search-suggest-list {
     position: relative;
   }
+}
 
-  .search-suggest-item {
-    display: flex;
-    align-items: center;
-    height: 45px;
-    padding-left: 10px;
+.search-suggest-item,
+.history-search-item {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  padding-left: 10px;
 
-    .suggest-search-icon {
-      flex: 0 0 auto;
-      margin-right: 7px;
-    }
+  .suggest-search-icon,
+  .history-search-icon {
+    flex: 0 0 auto;
+    margin-right: 7px;
+  }
 
-    .suggest-search-keyword {
-      position: relative;
-      display: inline-block;
-      flex: 1;
-      padding-right: 10px;
-      font-size: 15px;
-      line-height: 45px;
-      color: #333;
+  .suggest-search-keyword,
+  .history-search-keyword {
+    position: relative;
+    display: inline-block;
+    flex: 1;
+    padding-right: 10px;
+    font-size: 15px;
+    line-height: 45px;
+    color: #333;
 
-      &::after {
-        .bottom-hairline();
-      }
+    &::after {
+      .bottom-hairline();
     }
   }
 }
