@@ -40,7 +40,6 @@ export const playlistByCat = async () => {
 /**
  * 搜索建议
  */
-
 export async function searchSuggest(keyword: string = ''): Promise<[]> {
   const res = await axios({
     url: `/search/suggest?keywords=${keyword}&type=mobile`

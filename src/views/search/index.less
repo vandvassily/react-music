@@ -1,3 +1,5 @@
+@import '../../style/hairline.less';
+
 .search-input {
   position: relative;
   padding: 15px 10px;
@@ -67,5 +69,58 @@
     color: #333;
     border-radius: 16px;
     border: 1px solid #d3d4da;
+  }
+}
+
+.search-suggest-container {
+  position: relative;
+  margin: 0 auto;
+
+  .inputed-keyword {
+    position: relative;
+    height: 50px;
+    margin-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    line-height: 50px;
+    color: #507daf;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+
+    &::after {
+      .bottom-hairline();
+    }
+  }
+
+  .search-suggest-list {
+    position: relative;
+  }
+
+  .search-suggest-item {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding-left: 10px;
+
+    .suggest-search-icon {
+      flex: 0 0 auto;
+      margin-right: 7px;
+    }
+
+    .suggest-search-keyword {
+      position: relative;
+      display: inline-block;
+      flex: 1;
+      padding-right: 10px;
+      font-size: 15px;
+      line-height: 45px;
+      color: #333;
+
+      &::after {
+        .bottom-hairline();
+      }
+    }
   }
 }
