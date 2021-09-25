@@ -21,39 +21,39 @@ const About = lazy(() => import('../views/about/index'));
 const Help = lazy(() => import('../views/help/index'));
 const HotBillboard = lazy(() => import('../views/hot-billboard'));
 const Search = lazy(() => import('../views/search'));
+const Song = lazy(() => import('../views/song'));
 
 export const routes: RouteConfig[] = [
   {
-    path: '/',
+    path: '/home',
     component: HomeLayout,
     routes: [
       {
-        path: '/',
+        path: '/home/recommend',
         exact: true,
-        render: () => <Redirect to={'/about'} />,
-      },
-
-      {
-        path: '/about',
-        component: SuspenseComponent(About),
-      },
-      {
-        path: '/help',
-        component: SuspenseComponent(Help),
-      },
-      {
-        path: '/recommend',
         component: SuspenseComponent(Recommend),
       },
       {
-        path: '/hot-billboard',
+        path: '/home/hot-billboard',
         component: SuspenseComponent(HotBillboard),
       },
       {
-        path: '/search',
+        path: '/home/search',
         component: SuspenseComponent(Search),
       },
     ],
+  },
+  {
+    path: '/song/:id',
+    component: SuspenseComponent(Song),
+  },
+  {
+    path: '/about',
+    component: SuspenseComponent(About),
+  },
+  {
+    path: '/help',
+    component: SuspenseComponent(Help),
   },
   // {
   //   path: '/recommend',

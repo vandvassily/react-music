@@ -15,21 +15,21 @@ const Home: React.FC<RouteConfigComponentProps> = (props) => {
           <NavLink
             className="navbar-item"
             activeClassName="navbar-item-selected"
-            to="/recommend"
+            to="/home/recommend"
           >
             推荐音乐
           </NavLink>
           <NavLink
             className="navbar-item"
             activeClassName="navbar-item-selected"
-            to="/hot-billboard"
+            to="/home/hot-billboard"
           >
             热歌榜
           </NavLink>
           <NavLink
             className="navbar-item"
             activeClassName="navbar-item-selected"
-            to="/search"
+            to="/home/search"
           >
             搜索
           </NavLink>
