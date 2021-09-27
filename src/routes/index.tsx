@@ -22,6 +22,7 @@ const Help = lazy(() => import('../views/help/index'));
 const HotBillboard = lazy(() => import('../views/hot-billboard'));
 const Search = lazy(() => import('../views/search'));
 const Song = lazy(() => import('../views/song'));
+const ReduxDemo = lazy(() => import('../views/redux-demo'));
 
 export const routes: RouteConfig[] = [
   {
@@ -59,6 +60,10 @@ export const routes: RouteConfig[] = [
   {
     path: '/help',
     component: SuspenseComponent(Help)
+  },
+  {
+    path: '/redux-demo',
+    component: SuspenseComponent(ReduxDemo)
   }
   // {
   //   path: '/recommend',
