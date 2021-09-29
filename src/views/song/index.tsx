@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { RouteComponentProps, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getLyric } from '../../apis';
+import { lyricLine, parseLyric } from '../../utils';
 import './index.less';
 
 interface RouteParams {
@@ -19,12 +20,11 @@ interface Lrc {
 const Song: React.FC = () => {
   let { id } = useParams<RouteParams>();
 
-  const [lyric, setLyric] = useState([]);
+  const [lyric, setLyric] = useState<lyricLine[]>([]);
 
   useEffect(() => {
     getLyric(id).then((res) => {
-      const lyricArray = res.lrc.lyric.split('\n');
-      console.log(lyricArray)
+      const lyricArray = parseLyric(res.lrc.lyric);
       setLyric(lyricArray);
     });
   }, [id]);
@@ -34,7 +34,7 @@ const Song: React.FC = () => {
       <div className="m-song-bg"></div>
       <div className="lyric">
         {lyric.map((item) => {
-          return <div>{item}</div>;
+          return <div key={item.time}>{item.txt}</div>;
         })}
       </div>
     </div>
