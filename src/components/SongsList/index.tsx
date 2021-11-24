@@ -3,37 +3,25 @@ import classnames from 'classnames';
 import './index.less';
 import { Link, NavLink } from 'react-router-dom';
 
+import { SongInfo } from "../../interface";
+
 type Iprops = {
   title?: string;
   list?: SongItemProps[];
   showIndex?: boolean;
 };
 
-export type SongType = {
-  id?: string | number;
-  picUrl?: any;
-  name: string;
-  album: AlbumType;
-  artists: ArtistType[];
-};
-
 export type SongItemProps = {
   id?: string | number;
   picUrl?: any;
   name: string;
-  song?: SongType;
+  song?: SongInfo;
 };
 
 export interface ArtistType {
   id: number;
   name: string;
   picUrl?: string;
-}
-
-export interface AlbumType {
-  id: number;
-  name: string;
-  picUrl: string;
 }
 
 export type HotSongsProps = {
