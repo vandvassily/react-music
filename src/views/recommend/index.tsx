@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { personalized, playlistByCat, searchNewSongs } from '../../apis/search';
+import { personalized, searchNewSongs } from '../../apis/search';
 import RecommendList from '../../components/RecommendList';
 import SongsList from '../../components/SongsList';
 import Download from '../../components/Download';
@@ -12,18 +12,13 @@ const Recommend: React.FC<{}> = (props) => {
   // TODO: 请求统一封装
   useEffect(() => {
     personalized(6).then((res) => {
-      console.log(res);
       setRecommendList(res.result);
     });
 
     searchNewSongs().then((res) => {
-      console.log(res);
       setNewSongs(res.result);
     });
 
-    playlistByCat().then((res) => {
-      console.log(res);
-    });
   }, []);
   
   return (

@@ -6,7 +6,7 @@ export interface AlbumInfo {
   type: string;
   size: number;
   picId: number;
-  blurPicUrl: 'http://p3.music.126.net/RWWNKI7O2T6w5QKxpK7K8g==/109951166636313796.jpg';
+  blurPicUrl: string;
   companyId: number;
   pic: number;
   picUrl: string;

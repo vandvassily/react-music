@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './index.less';
 
-import { personalized, playlistByCat, searchHot } from '../../apis/search';
+import { personalized, searchHot } from '../../apis/search';
 
 interface MainProps {
   content?: string;
@@ -23,9 +23,6 @@ const Search: React.FC<{}> = () => {
     });
 
     personalized().then((res) => {
-      console.log(res);
-    });
-    playlistByCat().then((res) => {
       console.log(res);
     });
   }, []);
