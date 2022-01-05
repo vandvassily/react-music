@@ -2,7 +2,7 @@
   position: relative;
   .song-item {
     position: relative;
-    padding-left: 4px;
+    padding-left: 8px;
     display: flex;
 
     &::after {
@@ -35,6 +35,10 @@
     &-left {
       padding: 6px 0;
       flex: 1;
+
+      .song-name {
+        font-size: 17px;
+      }
     }
 
     .song-info {
@@ -46,6 +50,10 @@
       padding: 0 10px;
       display: flex;
       align-items: center;
+    }
+
+    .iconfont {
+      font-size: 22px;
     }
   }
 }
