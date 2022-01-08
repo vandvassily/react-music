@@ -1,6 +1,30 @@
-.look-all {
-  height: 55px;
-  line-height: 55px;
-  text-align: center;
-  color: #999;
+.hot-billboard {
+  &-banner {
+    position: relative;
+    padding-top: 38.9%;
+    background-image: url('https://s3.music.126.net/mobile-new/img/hot_music_bg_2x.jpg');
+    background-size: contain;
+  }
+
+  .banner-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 0 20px;
+    color: #fff;
+  }
+
+  .look-all {
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: #999;
+  }
 }

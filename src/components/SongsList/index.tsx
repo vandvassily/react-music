@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import './index.less';
 import { Link, NavLink } from 'react-router-dom';
 
-import { SongInfo } from "../../interface";
+import { SongInfo } from '../../interface';
 
 type Iprops = {
   title?: string;
@@ -56,7 +56,7 @@ const SongsList: React.FC<Iprops> = (props) => {
               </div>
             </div>
             <div className="song-item-right">
-              <i className="iconfont">&#xe698;</i>
+              <i className="iconfont">&#xe632;</i>
             </div>
           </div>
         );
@@ -97,7 +97,7 @@ export const HotSongsList: React.FC<HotSongsProps> = (props) => {
                 </div>
               </div>
               <div className="song-item-right">
-                <i className="iconfont">&#xe698;</i>
+                <i className="iconfont">&#xe632;</i>
               </div>
             </div>
           </Link>

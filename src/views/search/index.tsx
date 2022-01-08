@@ -7,12 +7,12 @@ import { getItem, setItem } from '../../utils';
 const Search: React.FC<{}> = () => {
   const [query, setQuery] = useState('');
   const [suggests, setSuggests] = useState([]);
-  const [hotSearchs, setHotSearchs] = useState([]);
+  const [hotSearches, setHotSearches] = useState([]);
   const [historyQuery, setHistoryQuery] = useState([]);
 
   useEffect(() => {
     searchHot().then((res) => {
-      setHotSearchs(res);
+      setHotSearches(res);
     });
   }, []);
 
@@ -79,7 +79,7 @@ const Search: React.FC<{}> = () => {
         <div className="hot-search-container">
           <div className="hot-search-title">热门搜索</div>
           <div className="hot-search-list">
-            {hotSearchs.map((item: any) => {
+            {hotSearches.map((item: any) => {
               return (
                 <div key={item.first} className="hot-search-item">
                   {item.first}
