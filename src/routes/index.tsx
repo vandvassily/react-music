@@ -26,45 +26,50 @@ const ReduxDemo = lazy(() => import('../views/redux-demo'));
 
 export const routes: RouteConfig[] = [
   {
+    path: '/',
+    exact: true,
+    render: () => <Redirect to={'/home'} />,
+  },
+  {
     path: '/home',
     component: HomeLayout,
     routes: [
       {
         path: '/home',
         exact: true,
-        render: () => <Redirect to={'/home/recommend'} />
+        render: () => <Redirect to={'/home/recommend'} />,
       },
       {
         path: '/home/recommend',
         exact: true,
-        component: SuspenseComponent(Recommend)
+        component: SuspenseComponent(Recommend),
       },
       {
         path: '/home/hot-billboard',
-        component: SuspenseComponent(HotBillboard)
+        component: SuspenseComponent(HotBillboard),
       },
       {
         path: '/home/search',
-        component: SuspenseComponent(Search)
-      }
-    ]
+        component: SuspenseComponent(Search),
+      },
+    ],
   },
   {
     path: '/song/:id',
-    component: SuspenseComponent(Song)
+    component: SuspenseComponent(Song),
   },
   {
     path: '/about',
-    component: SuspenseComponent(About)
+    component: SuspenseComponent(About),
   },
   {
     path: '/help',
-    component: SuspenseComponent(Help)
+    component: SuspenseComponent(Help),
   },
   {
     path: '/redux-demo',
-    component: SuspenseComponent(ReduxDemo)
-  }
+    component: SuspenseComponent(ReduxDemo),
+  },
   // {
   //   path: '/recommend',
   //   component: SuspenseComponent(RecommendComponent),
